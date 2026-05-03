@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ram-primary: #C20831;
+    --ram-secondary: #4A1E2C;
+    --ram-gold: #C9A86A;
+    --bg-default: #F8F8F8;
+    --ink-default: #1A1A1A;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-default);
+    color: var(--ink-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Scrollbar premium */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F1F1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C9A86A;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A88A4F;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #C20831;
+    color: white;
+  }
+}
+
+@layer components {
+  /* Lignes dorées fines premium */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C9A86A 50%, transparent);
+  }
+
+  .gold-line-vertical {
+    width: 1px;
+    background: linear-gradient(180deg, transparent, #C9A86A 50%, transparent);
+  }
+
+  /* Bouton premium */
+  .btn-premium {
+    @apply px-7 py-3 rounded-full font-medium tracking-wide transition-all duration-300;
+    @apply inline-flex items-center gap-2;
+  }
+  .btn-premium-primary {
+    @apply btn-premium bg-ram-primary text-white;
+    @apply hover:bg-ram-primary-dark hover:shadow-ram hover:-translate-y-0.5;
+  }
+  .btn-premium-gold {
+    @apply btn-premium bg-ram-gold text-ram-secondary;
+    @apply hover:bg-ram-gold-dark hover:shadow-gold hover:-translate-y-0.5;
+  }
+  .btn-premium-outline {
+    @apply btn-premium border border-ram-gold/40 text-ram-secondary;
+    @apply hover:bg-ram-gold/10 hover:border-ram-gold;
+  }
+
+  /* Card premium */
+  .card-premium {
+    @apply bg-white rounded-2xl shadow-premium border border-gray-100;
+    @apply transition-all duration-300;
+  }
+  .card-premium:hover {
+    @apply shadow-premium-lg;
+  }
+
+  /* Texte avec accent doré */
+  .accent-gold {
+    @apply text-ram-gold;
+  }
+
+  /* Heading display */
+  .heading-display {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Motif marocain subtil en arrière-plan */
+  .moroccan-pattern {
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(201, 168, 106, 0.05) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 75% 75%, rgba(201, 168, 106, 0.05) 1.5px, transparent 1.5px);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+  }
+
+  .moroccan-pattern-dark {
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(201, 168, 106, 0.08) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 75% 75%, rgba(201, 168, 106, 0.08) 1.5px, transparent 1.5px);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+  }
+
+  /* Fade au scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
